@@ -1,4 +1,4 @@
-FROM docker.io/rocky-base-images:latest
+FROM docker.io/rocky-base-images:8-default
 LABEL layer=2
 USER root
 

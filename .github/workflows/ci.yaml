@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  tier1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build tier1 base image
+      run: |
+        docker build ./tier1 --tag docker.io/kostakoff/rocky-base-images:8-default
+    - name: Push tier1 rocky 8 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-default
+  tier2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build tier2 nginx
+      run: |
+        docker build ./tier2/8-nginx --tag docker.io/kostakoff/rocky-base-images:8-nginx
+    - name: Push tier2 rocky 8 nginx base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-nginx
