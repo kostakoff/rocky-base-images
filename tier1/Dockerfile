@@ -7,7 +7,7 @@ RUN groupadd -g 1001 appuser && \
     mkdir /{app,data} && \
     chown appuser:appuser /app && \
     chown appuser:appuser /data && \
-    dnf -y install ca-certificates
+    dnf --enablerepo=powertools -y install ca-certificates
 
 # Add Tini
 ENV TINI_VERSION v0.19.0

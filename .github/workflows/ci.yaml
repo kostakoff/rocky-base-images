@@ -86,3 +86,43 @@ jobs:
     - name: Push tier2 rocky 8 dotnet 8 base image
       run: |
         docker push docker.io/kostakoff/rocky-base-images:8-dotnet8
+  tier3:
+    needs: tier2
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ vars.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - uses: actions/checkout@v4
+    - name: Build tier3 openjdk8-mvn
+      run: |
+        docker build ./tier3/8-openjdk8-mvn --tag docker.io/kostakoff/rocky-base-images:8-openjdk8-mvn
+    - name: Push tier3 rocky 8 openjdk8 maven base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk8-mvn
+    - name: Build tier3 openjdk11-mvn
+      run: |
+        docker build ./tier3/8-openjdk11-mvn --tag docker.io/kostakoff/rocky-base-images:8-openjdk11-mvn
+    - name: Push tier3 rocky 8 openjdk11 maven base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk11-mvn
+    - name: Build tier3 openjdk17-mvn
+      run: |
+        docker build ./tier3/8-openjdk17-mvn --tag docker.io/kostakoff/rocky-base-images:8-openjdk17-mvn
+    - name: Push tier3 rocky 8 openjdk17 maven base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk17-mvn
+    - name: Build tier3 openjdk21-mvn
+      run: |
+        docker build ./tier3/8-openjdk21-mvn --tag docker.io/kostakoff/rocky-base-images:8-openjdk21-mvn
+    - name: Push tier3 rocky 8 openjdk21 maven base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk21-mvn
+    - name: Build tier3 ansible
+      run: |
+        docker build ./tier3/8-ansible --tag docker.io/kostakoff/rocky-base-images:8-ansible
+    - name: Push tier3 rocky 8 ansible base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-ansible
