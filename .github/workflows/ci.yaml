@@ -38,3 +38,51 @@ jobs:
     - name: Push tier2 rocky 8 nginx base image
       run: |
         docker push docker.io/kostakoff/rocky-base-images:8-nginx
+    - name: Build tier2 openjdk8
+      run: |
+        docker build ./tier2/8-openjdk8 --tag docker.io/kostakoff/rocky-base-images:8-openjdk8
+    - name: Push tier2 rocky 8 openjdk8 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk8
+    - name: Build tier2 openjdk11
+      run: |
+        docker build ./tier2/8-openjdk11 --tag docker.io/kostakoff/rocky-base-images:8-openjdk11
+    - name: Push tier2 rocky 8 openjdk11 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk11
+    - name: Build tier2 openjdk17
+      run: |
+        docker build ./tier2/8-openjdk17 --tag docker.io/kostakoff/rocky-base-images:8-openjdk17
+    - name: Push tier2 rocky 8 openjdk17 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk17
+    - name: Build tier2 openjdk21
+      run: |
+        docker build ./tier2/8-openjdk21 --tag docker.io/kostakoff/rocky-base-images:8-openjdk21
+    - name: Push tier2 rocky 8 openjdk21 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-openjdk21
+    - name: Build tier2 python 2.7
+      run: |
+        docker build ./tier2/8-python2.7 --tag docker.io/kostakoff/rocky-base-images:8-python2.7
+    - name: Push tier2 rocky 8 python 2.7 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-python2.7
+    - name: Build tier2 python 3.9
+      run: |
+        docker build ./tier2/8-python3.9 --tag docker.io/kostakoff/rocky-base-images:8-python3.9
+    - name: Push tier2 rocky 8 python 3.9 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-python3.9
+    - name: Build tier2 nodejs 20
+      run: |
+        docker build ./tier2/8-nodejs20 --tag docker.io/kostakoff/rocky-base-images:8-nodejs20
+    - name: Push tier2 rocky 8 nodejs 20 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-nodejs20
+    - name: Build tier2 dotnet 8
+      run: |
+        docker build ./tier2/8-dotnet8 --tag docker.io/kostakoff/rocky-base-images:8-dotnet8
+    - name: Push tier2 rocky 8 dotnet 8 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-dotnet8
