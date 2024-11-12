@@ -2,6 +2,9 @@ FROM docker.io/rockylinux:8
 LABEL layer=1
 USER root
 
+# default env
+ENV JAVA_HOME /etc/alternatives/jre_openjdk
+
 RUN groupadd -g 1001 appuser && \
     useradd -m -u 1001 -g 1001 appuser && \
     mkdir /{app,data} && \
