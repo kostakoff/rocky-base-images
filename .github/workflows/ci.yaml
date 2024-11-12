@@ -22,6 +22,11 @@ jobs:
     - name: Push tier1 rocky 8 base image
       run: |
         docker push docker.io/kostakoff/rocky-base-images:8-default
+    - name: Scan tier1 base image
+      uses: anchore/scan-action@v3
+      with:
+        image: "docker.io/kostakoff/rocky-base-images:8-default"
+        severity-cutoff: critical
   tier2:
     needs: tier1
     runs-on: ubuntu-latest
