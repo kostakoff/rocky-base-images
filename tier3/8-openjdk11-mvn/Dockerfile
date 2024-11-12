@@ -10,6 +10,9 @@ RUN mkdir -p /opt/mvn && \
     rm /tmp/apache-maven-${MVN_VERSION}-bin.tar.gz && \
     chmod +x /opt/mvn/bin/mvn && \
     ln -s /opt/mvn/bin/mvn /usr/bin/mvn && \
-    mvn --version
+    mvn --version && \
+    dnf -y install docker-ce-cli && \
+    groupadd -g 127 github-runner && \
+    usermod -aG github-runner appuser
 
 USER appuser
