@@ -9,11 +9,13 @@ RUN dnf -y module reset nginx && \
 # https://github.com/nginxinc/docker-nginx-unprivileged/blob/main/stable/alpine-slim/Dockerfile#L111
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
-    mkdir /var/cache/nginx && \
+    mkdir -p /var/{cache/nginx,lib/nginx} && \
     chown -R appuser:appuser /var/cache/nginx && \
     chmod -R g+w /var/cache/nginx && \
     chown -R appuser:appuser /etc/nginx && \
-    chmod -R g+w /etc/nginx
+    chmod -R g+w /etc/nginx && \
+    chown -R appuser:appuser /var/lib/nginx && \
+    chmod -R g+w /var/lib/nginx
 
 USER appuser
 
