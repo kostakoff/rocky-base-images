@@ -7,9 +7,10 @@ ENV JAVA_HOME /etc/alternatives/jre_openjdk
 
 RUN groupadd -g 1001 appuser && \
     useradd -m -u 1001 -g 1001 appuser && \
-    mkdir /{app,data} && \
+    mkdir /{app,data,etc/secrets} && \
     chown appuser:appuser /app && \
     chown appuser:appuser /data && \
+    chown appuser:appuser /etc/secrets && \
     dnf --enablerepo=powertools -y install ca-certificates
 
 # Add Tini
