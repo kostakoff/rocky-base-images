@@ -3,6 +3,6 @@ LABEL layer=2
 USER root
 
 RUN dnf -y install python39 && \
-    pip3 install virtualenv
+    pip3 install virtualenv pdm
 
 USER appuser
