@@ -15,7 +15,9 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     chown -R appuser:appuser /etc/nginx && \
     chmod -R g+w /etc/nginx && \
     chown -R appuser:appuser /var/lib/nginx && \
-    chmod -R g+w /var/lib/nginx
+    chmod -R g+w /var/lib/nginx && \
+    chown -R appuser:appuser /usr/share/nginx && \
+    chmod -R g+w /usr/share/nginx
 
 USER appuser
 
