@@ -43,6 +43,12 @@ jobs:
     - name: Push tier2 rocky 8 nginx base image
       run: |
         docker push docker.io/kostakoff/rocky-base-images:8-nginx
+    - name: Build tier2 httpd 2.4
+      run: |
+        docker build ./tier2/8-httpd2.4 --tag docker.io/kostakoff/rocky-base-images:8-httpd2.4
+    - name: Push tier2 rocky 8 httpd 2.4 base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-httpd2.4
     - name: Build tier2 openjdk8
       run: |
         docker build ./tier2/8-openjdk8 --tag docker.io/kostakoff/rocky-base-images:8-openjdk8
