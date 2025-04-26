@@ -137,6 +137,12 @@ jobs:
     - name: Push tier3 rocky 8 ansible base image
       run: |
         docker push docker.io/kostakoff/rocky-base-images:8-ansible
+    - name: Build tier3 ansible for windows
+      run: |
+        docker build ./tier3/8-ansible-win --tag docker.io/kostakoff/rocky-base-images:8-ansible-win
+    - name: Push tier3 rocky 8 ansible for windows base image
+      run: |
+        docker push docker.io/kostakoff/rocky-base-images:8-ansible-win
     - name: Build tier3 nodejs 20 docker image
       run: |
         docker build ./tier3/8-nodejs20-docker --tag docker.io/kostakoff/rocky-base-images:8-nodejs20-docker

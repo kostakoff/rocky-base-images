@@ -1,0 +1,4 @@
+pywinrm==0.2.2
+kerberos==1.2.5
+requests_kerberos==0.11.0
+ansible==2.9.27
